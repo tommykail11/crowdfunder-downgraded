@@ -1,8 +1,11 @@
 CrowdfunderDowngraded::Application.routes.draw do
 
+  get "users/new"
+
   root :to => 'welcome#index'
   
   resources :projects
+  resources :users, except: [:index]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
