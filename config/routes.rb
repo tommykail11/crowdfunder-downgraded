@@ -1,6 +1,6 @@
 CrowdfunderDowngraded::Application.routes.draw do
 
-  root :to => 'projects#index'
+  root :to => 'welcome#index'
   
   resources :projects
 
