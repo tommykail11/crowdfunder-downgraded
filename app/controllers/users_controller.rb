@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.new params[:user]
     if @user.save
       auto_login(@user)
-      redirect_to root_path, notice: "Account created."
+      redirect_to root_path, notice: "Thanks for creating an account... Enjoy Crowdfunder Downgraded!"
     else
       render :new
     end
