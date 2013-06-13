@@ -1,5 +1,9 @@
 CrowdfunderDowngraded::Application.routes.draw do
 
+  get "pledges/new"
+
+  get "pledges/create"
+
   get "sessions/new"
 
   get "sessions/create"
