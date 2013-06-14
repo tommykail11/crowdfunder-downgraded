@@ -1,2 +1,14 @@
-<h1>Pledges#new</h1>
-<p>Find me in app/views/pledges/new.html.erb</p>
+<h1>Pledge for <%= @project.title %></h1>
+
+<%= form_for [@project, @pledge] do |f| %>
+
+  <%= render 'layouts/shared/form_errors', :f => f %>
+
+  <%= f.label :amount %>
+  <%= f.text_field :amount %>
+
+  <div class="form-actions">
+    <%= f.submit 'Pledge Now', :class => 'btn' %>
+  </div>
+
+<% end %>
