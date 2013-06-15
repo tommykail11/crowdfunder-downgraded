@@ -1,0 +1,17 @@
+<p>
+  Hey there <%= @user.name %>,
+</p>
+
+<p>
+  I've got some good news for you. Your glorious project <%= link_to @project.title, project_url(@project) %>
+  was just backed by <em><%= @backer.name %></em>
+  for <strong><%= number_to_currency @pledge.amount %></strong>. You should be extremely proud of yourself.
+  Your hard work and effort will not go unrewarded.
+</p>
+
+<hr/>
+
+<p>
+  Best of luck!<br/>
+  Crowdfunder Downgraded team.
+</p>

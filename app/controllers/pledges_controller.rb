@@ -1,5 +1,5 @@
 class PledgesController < ApplicationController
-
+  
   before_filter :require_login
   before_filter :require_project
 
@@ -10,9 +10,10 @@ class PledgesController < ApplicationController
   def create
     @pledge = @project.pledges.build params[:pledge]
     @pledge.user = current_user
-
+    
     if @pledge.save
-      redirect_to @project, notice: "Thanks for participating in this project. $#{@pledge.amount} will surely help the cause."
+      UserMailer.new_pledge(@pledge).deliver
+      redirect_to @project, notice: "Nice! Thanks for pledging $#{@pledge.amount} for this project."
     else
       render :new
     end
@@ -23,5 +24,4 @@ class PledgesController < ApplicationController
   def require_project
     @project = Project.find params[:project_id]
   end
-
 end
