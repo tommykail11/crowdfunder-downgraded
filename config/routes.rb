@@ -1,4 +1,8 @@
 CrowdfunderDowngraded::Application.routes.draw do
+  get "images/index"
+
+  get "images/create"
+
   get "projects/index"
 
   get "projects/new"
