@@ -1,28 +1,25 @@
 CrowdfunderDowngraded::Application.routes.draw do
-  get "images/index"
-
-  get "images/create"
-
   get "projects/index"
 
   get "projects/new"
 
   get "projects/edit"
 
-  resources :projects do
-    resources :pledges, :only => [:new, :create]
+  resources :projects do 
+    resources :pledges, only: [:new, :create]
   end
 
-  namespace :my do
-    resources :projects
+  namespace :my do 
+    resources :projects do # => My::ProjectsController
+      resources :images, only: [:index, :create]
+    end
   end
-
+  
   resources :users, except: [:index]
   resource  :session, :only => [:new, :create, :destroy]
 
   root :to => 'welcome#index'
 end
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
